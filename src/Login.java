@@ -20,7 +20,6 @@ public class Login extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private boolean esTrue;
-	JRadioButton rdbtnPreparation;
 
 	/**
 	 * Launch the application.
@@ -72,63 +71,38 @@ public class Login extends JFrame {
 		contentPane.add(textField_1);
 		
 		JLabel label = new JLabel("");
-		label.setBounds(130, 201, 294, 37);
+		label.setBounds(331, 173, 93, 34);
 		contentPane.add(label);
 		
 		String contrasenya = textField_1.getText();
-		
-		 rdbtnPreparation = new JRadioButton("Preparation");
-			rdbtnPreparation.setBounds(6, 187, 129, 20);
-			contentPane.add(rdbtnPreparation);
 	
 		JButton btnIniciarSessio = new JButton("Iniciar Sessio");
 		btnIniciarSessio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				if(rdbtnPreparation.isEnabled()){
-					try {
-						IniciDeSessio login = new IniciDeSessio(textField.getText(), textField_1.getText());
-						label.setText(login.haIniciado2());
-					} catch (ClassNotFoundException e) {
-
-						e.printStackTrace();
-					} catch (SQLException e) {
-
-						e.printStackTrace();
-					}
-				}else{
-					try {
-						IniciDeSessio login = new IniciDeSessio(textField.getText(), textField_1.getText());
-						label.setText(login.haIniciado());
-					} catch (ClassNotFoundException e) {
-
-						e.printStackTrace();
-					} catch (SQLException e) {
-
-						e.printStackTrace();
-					}
+				try {
+					IniciDeSessio login = new IniciDeSessio(textField.getText(), textField_1.getText());
+					label.setText(login.haIniciado());
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
-				
-				
-				
+
 			}
 		});
-		btnIniciarSessio.setBounds(130, 153, 128, 37);
+		btnIniciarSessio.setBounds(136, 173, 128, 37);
 		contentPane.add(btnIniciarSessio);
 		
-	
-		
-		
-		
+		JRadioButton rdbtnPreparation = new JRadioButton("Preparation");
+		rdbtnPreparation.setBounds(6, 187, 129, 20);
+		contentPane.add(rdbtnPreparation);
+
 		
 	}
 	
-	public boolean estaPresionado(){
-		if(rdbtnPreparation.isEnabled()){
-			return true;
-		}else{
-			return false;
-		}
-	}
+
 	
 }
