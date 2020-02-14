@@ -75,30 +75,47 @@ public class Login extends JFrame {
 		contentPane.add(label);
 		
 		String contrasenya = textField_1.getText();
-	
+		
+		JRadioButton rdbtnPreparation = new JRadioButton("Preparation");
+		rdbtnPreparation.setBounds(6, 187, 129, 20);
+		contentPane.add(rdbtnPreparation);
+		
 		JButton btnIniciarSessio = new JButton("Iniciar Sessio");
 		btnIniciarSessio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				try {
-					IniciDeSessio login = new IniciDeSessio(textField.getText(), textField_1.getText());
-					label.setText(login.haIniciado());
-				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				if(rdbtnPreparation.isSelected()){
+					try {
+						IniciDeSessio login = new IniciDeSessio(textField.getText(), textField_1.getText());
+						label.setText(login.haIniciado2());
+					} catch (ClassNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+	
+				}else{
+					try {
+						IniciDeSessio login = new IniciDeSessio(textField.getText(), textField_1.getText());
+						label.setText(login.haIniciado());
+					} catch (ClassNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
+			
 
 			}
 		});
 		btnIniciarSessio.setBounds(136, 173, 128, 37);
 		contentPane.add(btnIniciarSessio);
 		
-		JRadioButton rdbtnPreparation = new JRadioButton("Preparation");
-		rdbtnPreparation.setBounds(6, 187, 129, 20);
-		contentPane.add(rdbtnPreparation);
+		
 
 		
 	}
